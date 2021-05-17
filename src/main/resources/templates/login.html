@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link th:href="@{/css/style.css}" rel="stylesheet">
+  <title>EMS - Login</title>
+</head>
+
+<body>
+
+  <div class="row login">
+    <div class="col s12 l4 offset-l4">
+      <div class="card br">
+        <div class="card-action center-align teal accent-3 black-text br">
+          <h4>EMS Login</h4>
+        </div>
+        <div class="card-content">
+          <form action="admin_dashboard.html" method="post">
+            <div class="input-field">
+              <input type="email" id="email" class="validate" required>
+              <label for="email">Email</label>
+            </div>
+
+            <div class="input-field">
+              <input type="password" id="password" class="validate" required>
+              <label for="password">Password</label>
+            </div>
+            <br>
+
+            <div class="form-field center-align">
+              <input type="button" class="btn-large waves-effect waves-light black-text br btn-mt" value="Login">
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>

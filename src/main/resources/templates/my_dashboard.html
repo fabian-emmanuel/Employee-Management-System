@@ -1,0 +1,43 @@
+<!Doctype HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard - Employee</title>
+
+    <!-- Materialize-->
+    <link href="https://cdn.shopify.com/s/files/1/1775/8583/t/1/assets/admin-materialize.min.css?v=8850535670742419153" rel="stylesheet">
+    <!-- Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+
+</head>
+<body class="has-fixed-sidenav">
+<header>
+    <ul id="sidenav-left" class="sidenav sidenav-fixed teal">
+        <li><h3 class="logo-container">My Dashboard<i class="material-icons left">spa</i></h3></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+              <li class="bold waves-effect"><a href="my_attendance.html" class="collapsible-header">My Attendance</a>
+              </li>
+                <li class="bold waves-effect"><a class="collapsible-header">Log Out</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</header>
+<main>
+  <div class="center">
+  <h2 class="white-text">Good Morning</h2>
+  <h2 class="teal-text">Employee Name</h2>
+  <h2 class="center white-text">Welcome</h2>
+  <h2 class="center teal-text">To Work</h2>
+
+</div>
+</main><!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+<!-- Initialization script -->
+<script src="https://cdn.shopify.com/s/files/1/1775/8583/t/1/assets/dashboard.min.js?v=481680883062710906"></script>
+</body>
+</html>
