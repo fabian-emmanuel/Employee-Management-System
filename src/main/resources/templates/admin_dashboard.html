@@ -18,14 +18,14 @@
         <li><h3 class="logo-container">Admin Dashboard<i class="material-icons left">spa</i></h3></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-                <li class="bold waves-effect active"><a href="reg_emp.html" class="collapsible-header">Register Employee</a>
+                <li class="bold waves-effect"><a th:href="@{/reg_page}" class="collapsible-header">Register Employee</a>
                 </li>
-                <li class="bold waves-effect"><a href="emp_list.html" class="collapsible-header">Employees List</a>
+                <li class="bold waves-effect"><a th:href="@{/emp_list_page}" class="collapsible-header">Employees List</a>
                 </li>
                 <li class="bold waves-effect"><a href="emp_attendance.html" class="collapsible-header">Employees Attendance</a>
                 </li>
                 <li class="bold waves-effect"><a href="emp_salary.html" class="collapsible-header">Pay Employees</a></li>
-                <li class="bold waves-effect"><a class="collapsible-header">Log Out</a>
+                <li class="bold waves-effect"><a th:href="@{/logout}" class="collapsible-header">Log Out</a>
                 </li>
             </ul>
         </li>

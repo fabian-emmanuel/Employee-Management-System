@@ -18,7 +18,7 @@
           <h4>EMS Login</h4>
         </div>
         <div class="card-content">
-          <form th:action="@{/login}" method="post" th:object="${admin}">
+          <form th:action="@{/login}" method="post" th:object="${user}">
             <div class="input-field">
               <input type="email" id="email" class="validate" th:field="*{email}" required>
               <label for="email">Email</label>
@@ -31,7 +31,7 @@
             <br>
 
             <div class="form-field center-align">
-              <input type="submit" class="btn-large waves-effect waves-light black-text br btn-mt" value="Login">
+              <input type="submit" class="btn-small waves-effect waves-light black-text br btn-mt" value="Login">
             </div>
 
           </form>

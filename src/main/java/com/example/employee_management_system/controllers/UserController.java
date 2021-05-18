@@ -29,70 +29,101 @@ public class UserController {
   public String userLogin(User user, Model model, HttpSession session){
       if(user.getEmail().equals("admin@admin.com") && user.getPassword().equals("admin")){
         session.setAttribute("user", new User());
-        return "redirect:/adminDB";
+        return "redirect:/admin_db";
       }
-
       User employee = userService.getUserByEmailAndPassword(user.getEmail(), user.getPassword());
       if(employee == null){
         model.addAttribute("invalid", "Invalid details");
         return "login";
       }
       session.setAttribute("user", employee);
-      return "redirect:/empDB";
+      return "redirect:/emp_db";
+  }
+
+  @GetMapping("/logout")
+  public String logout(Model model, HttpSession session){
+    if (session != null) session.invalidate();
+    model.addAttribute("user", new User());
+    return "redirect:/";
   }
   
   // ADMIN
 
   @GetMapping("/admin_db")
-  public String showAdminDashboard(Model model) {
-    model.addAttribute("user", new User());
+  public String showAdminDashboard(Model model, HttpSession session) {
+    User user = (User) session.getAttribute("user");
+    if(user == null) return "redirect:/";
+    model.addAttribute("user", user);
     return "admin_dashboard";
   }
 
   @GetMapping("/reg_page")
-  public String showRegPage(Model model) {
-    model.addAttribute("employee", new User());
+  public String showRegPage(Model model, HttpSession session) {
+    User user = (User) session.getAttribute("user");
+    if (user == null) return "redirect:/";
+    model.addAttribute("employee", user);
     return "reg_emp";
   }
 
   @PostMapping("/register")
-  public String registerEmployee(User employee){
+  public String registerEmployee(User employee, HttpSession session){
+    User user = (User) session.getAttribute("user");
+    if (user == null)
+      return "redirect:/";
+    employee.setPassword(employee.getFirstName()+"123");
     userService.saveEmployee(employee);
-    return "redirect:/emp_list";
+    return "redirect:/emp_list_page";
   }
 
-  @GetMapping("/emp_list")
-  public String showEmployeeList(Model model){
-    model.addAttribute("employee_list", userService.getAllUser());
+  @GetMapping("/emp_list_page")
+  public String showEmployeeList(Model model, HttpSession session){
+    User user = (User) session.getAttribute("user");
+    if (user == null)
+      return "redirect:/";
+    model.addAttribute("employee", new User());
+    model.addAttribute("delete_emp", new User());
+    model.addAttribute("all_employee", userService.getAllUser());
     return "emp_list";
 
   }
 
   @GetMapping("/edit/{id}")
-  public String showEditPage(@PathVariable("id") Long id, Model model){
+  public String showEditPage(@PathVariable("id") Long id, Model model, HttpSession session){
+    User user = (User) session.getAttribute("user");
+    if (user == null)
+      return "redirect:/";
     User employee =  userService.getUserById(id);
     model.addAttribute("employee", employee);
     return "update_emp";
   }
 
   @PostMapping("/update/{id}")
-  public String updateEmployeeDetails(@PathVariable("id") Long id, User employee){
+  public String updateEmployeeDetails(@PathVariable("id") Long id, User employee, HttpSession session){
+    User user = (User) session.getAttribute("user");
+    if (user == null)
+      return "redirect:/";
     userService.updateEmployee(employee, id);
-    return "redirect:/emp_list";
+    return "redirect:/emp_list_page";
   }
 
-  @PostMapping("/delete/{id}")
-  public String deleteEmployee(@PathVariable("id") Long id){
+  @GetMapping("/delete/{id}")
+  public String deleteEmployee(@PathVariable("id") Long id, HttpSession session){
+    User user = (User) session.getAttribute("user");
+    if (user == null)
+      return "redirect:/";
     User employee = userService.getUserById(id);
     userService.delete(employee);
-    return "redirect:/emp_list";
+    return "redirect:/emp_list_page";
   }
 
 
 
   // EMPLOYEE
   @GetMapping("/emp_db")
-  public String showEmployeeDashBoard(Model model) {
+  public String showEmployeeDashBoard(Model model, HttpSession session) {
+    User user = (User) session.getAttribute("user");
+    if (user == null)
+      return "redirect:/";
     model.addAttribute("employee", new User());
     return "my_dashboard";
   }

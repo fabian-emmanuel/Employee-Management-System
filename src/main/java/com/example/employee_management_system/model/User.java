@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity(name = "employee")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,9 +26,9 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany (mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Attendance> attendance;
 }

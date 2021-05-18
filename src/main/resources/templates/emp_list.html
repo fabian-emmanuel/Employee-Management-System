@@ -18,14 +18,14 @@
         <li><h3 class="logo-container">Admin Dashboard<i class="material-icons left">spa</i></h3></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-                <li class="bold waves-effect active"><a href="reg_emp.html" class="collapsible-header">Register Employee</a>
+                <li class="bold waves-effect active"><a th:href="@{/reg_page}" class="collapsible-header">Register Employee</a>
                 </li>
                 <li class="bold waves-effect"><a href="#" class="collapsible-header">Employees List</a>
                 </li>
                 <li class="bold waves-effect"><a href="emp_attendance.html" class="collapsible-header">Employees Attendance</a>
                 </li>
                 <li class="bold waves-effect"><a href="emp_salary.html" class="collapsible-header">Pay Employees</a></li>
-                <li class="bold waves-effect"><a class="collapsible-header">Log Out</a>
+                <li class="bold waves-effect"><a th:href="@{/logout}" class="collapsible-header">Log Out</a>
                 </li>
             </ul>
         </li>
@@ -52,41 +52,18 @@
 
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody th:each="employee : ${all_employee}">
                     <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">alvin@eclair.com</td>
+                        <td class="center" th:text="${employee.firstName}">Alvin</td>
+                        <td class="center" th:text="${employee.lastName}">Eclair</td>
+                        <td class="center" th:text="${employee.email}">alvin@eclair.com</td>
                         <td class="right">
                             <div class="col">
-                                <a href="#" class="br red btn-large btn-mn right"><i class="small material-icons">delete_sweep</i></a>
-                                <a href="update_emp.html" class="br green btn-large btn-m center"><i class="small material-icons">mode_edit</i></a>
+                                <a th:href="@{/delete/{id}(id=${employee.getId()})}" th:object="${delete_emp}" class="br red btn-small btn-mn right"><i class="small material-icons">delete_sweep</i></a>
+                                <a th:href="@{/edit/{id}(id=${employee.getId()})}" th:object="${employee}" class="br green btn-small btn-m center"><i class="small material-icons">mode_edit</i></a>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">alvin@eclair.com</td>
-                        <td class="right">
-                            <div class="col">
-                                <a href="#" class="br red btn-large btn-mn right"><i class="small material-icons">delete_sweep</i></a>
-                                <a href="update_employee_details.html" class="br green btn-large btn-m center"><i class="small material-icons">mode_edit</i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">alvin@eclair.com</td>
-                        <td class="right">
-                            <div class="col">
-                                <a href="#" class="br red btn-large btn-mn right"><i class="small material-icons">delete_sweep</i></a>
-                                <a href="update_employee_details.html" class="br green btn-large btn-m center"><i class="small material-icons">mode_edit</i></a>
-                            </div>
-                        </td>
-                    </tr>
-
                     </tbody>
                 </table>
             </div>
