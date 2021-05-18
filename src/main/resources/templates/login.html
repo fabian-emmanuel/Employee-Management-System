@@ -18,20 +18,20 @@
           <h4>EMS Login</h4>
         </div>
         <div class="card-content">
-          <form action="admin_dashboard.html" method="post">
+          <form th:action="@{/login}" method="post" th:object="${admin}">
             <div class="input-field">
-              <input type="email" id="email" class="validate" required>
+              <input type="email" id="email" class="validate" th:field="*{email}" required>
               <label for="email">Email</label>
             </div>
 
             <div class="input-field">
-              <input type="password" id="password" class="validate" required>
+              <input type="password" id="password" class="validate" th:field="*{password}" required>
               <label for="password">Password</label>
             </div>
             <br>
 
             <div class="form-field center-align">
-              <input type="button" class="btn-large waves-effect waves-light black-text br btn-mt" value="Login">
+              <input type="submit" class="btn-large waves-effect waves-light black-text br btn-mt" value="Login">
             </div>
 
           </form>

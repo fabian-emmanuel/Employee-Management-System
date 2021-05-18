@@ -26,6 +26,6 @@ public class Attendance {
     @Column(nullable = false)
     private Time checkOutTime;
 
-    @OneToOne
-    private Employee employee;
+    @ManyToOne
+    private User employee;
 }
