@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Data
 @NoArgsConstructor
@@ -17,14 +17,14 @@ public class Attendance {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
-    private Date workDayDate;
+    @Column(nullable = false, name = "date")
+    private LocalDate workDayDate;
 
-    @Column(nullable = false)
-    private Time checkInTime;
+    @Column(nullable = false, name = "time_in")
+    private LocalTime checkInTime;
 
-    @Column(nullable = false)
-    private Time checkOutTime;
+    @Column(nullable = false, name = "time_out")
+    private LocalTime checkOutTime;
 
     @ManyToOne
     private User employee;

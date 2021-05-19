@@ -18,9 +18,11 @@
         <li><h3 class="logo-container">My Dashboard<i class="material-icons left">spa</i></h3></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-              <li class="bold waves-effect"><a href="my_attendance.html" class="collapsible-header">My Attendance</a>
+              <li class="bold waves-effect"><a class="collapsible-header">My Attendance</a>
               </li>
-                <li class="bold waves-effect"><a class="collapsible-header">Log Out</a>
+              <li class="bold waves-effect"><a th:href="@{/record_page}" class="collapsible-header">My Record</a>
+              </li>
+                <li class="bold waves-effect"><a th:href="@{/logout}" class="collapsible-header">Log Out</a>
                 </li>
             </ul>
         </li>
@@ -30,7 +32,8 @@
     <div class="row dash">
         <div class="row">
             <div class="col s10">
-                <h3 class="teal-text">Name of Employee</h3>
+                <h3 class="teal-text" th:text="${employee.firstName +' '+ employee.lastName}">Name of Employee</h3>
+                <h6 class="right teal-text">My Attendance</h6>
                 <hr>
             </div>
         </div>
@@ -50,18 +53,30 @@
                         <td class="left"><h6>TIME IN </h6></td>
                         <td class="center"><h6> 6 : 32 AM </h6></td>
                         <td class="right">
+
+                            <form >
                             <div class="col">
                                 <button type="submit" class="br green btn-small btn-m center">CHECK IN</button>
                             </div>
+                            </form>
+
                         </td>
                     </tr>
                     <tr>
                         <td class="left"><h6>TIME OUT </h6></td>
                         <td class="center"><h6> 7 : 32 PM </h6></td>
                         <td class="right">
+
+                            
+
+                           
+                            <form>
+                                
                             <div class="col">
                                 <button type="submit" class="br red btn-small btn-m center">CHECK OUT</button>
                             </div>
+                           </form>
+
                         </td>
                     </tr>
 

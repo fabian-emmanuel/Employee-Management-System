@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - Admin</title>
+    <title>Dashboard - Employee</title>
 
     <!-- Materialize-->
     <link href="https://cdn.shopify.com/s/files/1/1775/8583/t/1/assets/admin-materialize.min.css?v=8850535670742419153" rel="stylesheet">
@@ -15,16 +15,13 @@
 <body class="has-fixed-sidenav">
 <header>
     <ul id="sidenav-left" class="sidenav sidenav-fixed teal">
-        <li><h3 class="logo-container">Admin Dashboard<i class="material-icons left">spa</i></h3></li>
+        <li><h3 class="logo-container">My Dashboard<i class="material-icons left">spa</i></h3></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-                <li class="bold waves-effect"><a th:href="@{/reg_page}" class="collapsible-header">Register Employee</a>
-                </li>
-                <li class="bold waves-effect"><a th:href="@{/emp_list_page}" class="collapsible-header">Employees List</a>
-                </li>
-                <li class="bold waves-effect"><a href="#" class="collapsible-header">Employees Attendance</a>
-                </li>
-                <li class="bold waves-effect"><a th:href="@{/sal_rec_page}" class="collapsible-header">Salary Records</a></li>
+              <li class="bold waves-effect"><a th:href="@{/attendance_page}" class="collapsible-header">My Attendance</a>
+              </li>
+              <li class="bold waves-effect"><a href="#" class="collapsible-header">My Record</a>
+              </li>
                 <li class="bold waves-effect"><a th:href="@{/logout}" class="collapsible-header">Log Out</a>
                 </li>
             </ul>
@@ -35,7 +32,8 @@
     <div class="row dash">
         <div class="row">
             <div class="col s10">
-                <h3 class="teal-text">Employees Attendance</h3>
+                <h3 class="teal-text" th:text="${employee.firstName +' '+ employee.lastName}">Name of Employee</h3>
+                <h6 class="right teal-text">My Record</h6>
                 <hr>
             </div>
         </div>
@@ -44,29 +42,29 @@
         <div class="row">
             <div class="col s10">
                 <table class="striped">
-                  <thead>
-                    <h6 class="white-text">Date : Jan - 15 - 2022</h6>
+                    <thead>
                     <tr>
-                      <th data-field="firstName" class="center white-text"><h6>First Name</h6></th>
-                      <th data-field="lastName" class="center white-text"><h6>Last Name<h6></th>
-                      <th data-field="email" class="center white-text"><h6> Checked In</h6></th>
-                      <th data-field="email" class="center white-text"> <h6> Checked Out</h6></th>
+                      <th data-field="" class="center white-text"><h6>Date</h6></th>
+                        <th data-field="" class="center white-text"><h6>Work Hours<h6></th>
+                        <th data-field="" class="center white-text"><h6>Salary Due</h6></th>
                     </tr>
-                  </thead>
+                    </thead>
                     <tbody>
                     <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">5 : 00 AM</td>
-                        <td class="center">7: 00 PM</td>
+                        <td class="center">Jan - 10 - 2022</td>
+                        <td class="center">7 Hours</td>
+                        <td class="center">$350</td>
                     </tr>
                     <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">5 : 00 AM</td>
-                        <td class="center">7: 00 PM</td>
+                        <td class="center">Jan - 11 - 2022</td>
+                        <td class="center">3 Hours</td>
+                        <td class="center">$150</td>
                     </tr>
-
+                    <tr>
+                        <td class="center">Jan - 12 - 2022</td>
+                        <td class="center">10 Hours</td>
+                        <td class="center">$500</td>
+                    </tr>
 
                     </tbody>
                 </table>

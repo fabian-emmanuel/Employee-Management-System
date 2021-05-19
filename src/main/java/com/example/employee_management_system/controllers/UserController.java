@@ -116,15 +116,38 @@ public class UserController {
     return "redirect:/emp_list_page";
   }
 
+  @GetMapping("/sal_rec_page")
+  public String showSalaryRecordPage(Model model, HttpSession session){
+    User user = (User) session.getAttribute("user");
+    if(user == null) return "redirect:/";
+    model.addAttribute("user", user);
+    return "emp_salary";
+  }
 
 
   // EMPLOYEE
   @GetMapping("/emp_db")
   public String showEmployeeDashBoard(Model model, HttpSession session) {
-    User user = (User) session.getAttribute("user");
-    if (user == null)
+    User employee = (User) session.getAttribute("user");
+    if (employee == null)
       return "redirect:/";
-    model.addAttribute("employee", new User());
+    model.addAttribute("employee", employee);
     return "my_dashboard";
+  }
+
+  @GetMapping("/attendance_page")
+  public String showAttendancePage(Model model, HttpSession session){
+    User employee = (User) session.getAttribute("user");
+    if (employee == null) return "redirect:/";
+    model.addAttribute("employee", employee);
+    return "my_attendance";
+  }
+
+  @GetMapping("/record_page")
+  public String showRecordPage(Model model, HttpSession session){
+    User employee = (User) session.getAttribute("user");
+    if(employee == null) return "redirect:/";
+    model.addAttribute("employee", employee);
+    return "my_record";
   }
 }

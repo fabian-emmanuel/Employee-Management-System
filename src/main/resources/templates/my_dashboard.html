@@ -18,9 +18,11 @@
         <li><h3 class="logo-container">My Dashboard<i class="material-icons left">spa</i></h3></li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
-              <li class="bold waves-effect"><a href="my_attendance.html" class="collapsible-header">My Attendance</a>
+              <li class="bold waves-effect"><a th:href="@{/attendance_page}" class="collapsible-header">My Attendance</a>
               </li>
-                <li class="bold waves-effect"><a class="collapsible-header">Log Out</a>
+              <li class="bold waves-effect"><a th:href="@{/record_page}" class="collapsible-header">My Record</a>
+              </li>
+                <li class="bold waves-effect"><a th:href="@{/logout}" class="collapsible-header">Log Out</a>
                 </li>
             </ul>
         </li>
@@ -29,7 +31,7 @@
 <main>
   <div class="center">
   <h2 class="white-text">Good Morning</h2>
-  <h2 class="teal-text">Employee Name</h2>
+  <h2 class="teal-text" th:text="${employee.firstName +' '+ employee.lastName}">Employee Name</h2>
   <h2 class="center white-text">Welcome</h2>
   <h2 class="center teal-text">To Work</h2>
 

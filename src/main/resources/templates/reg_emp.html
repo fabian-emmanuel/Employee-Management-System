@@ -22,9 +22,9 @@
                 </li>
                 <li class="bold waves-effect"><a th:href="@{/emp_list_page}" class="collapsible-header">Employees List</a>
                 </li>
-                <li class="bold waves-effect"><a href="emp_attendance.html" class="collapsible-header">Employees Attendance</a>
+                <li class="bold waves-effect"><a th:href="@{/attendance_page}" class="collapsible-header">Employees Attendance</a>
                 </li>
-                <li class="bold waves-effect"><a href="emp_salary.html" class="collapsible-header">Pay Employees</a></li>
+                <li class="bold waves-effect"><a th:href="@{/sal_rec_page}" class="collapsible-header">Salary Records</a></li>
                 <li class="bold waves-effect"><a th:href="@{/logout}" class="collapsible-header">Log Out</a>
                 </li>
             </ul>
@@ -58,7 +58,7 @@
                     <input type="email" id="email" class="validate" th:field="*{email}">
                     <label for="email" data-error="wrong" data-success="right">Email</label>
                     <div class="form-field right-align">
-                      <input class="btn-large waves-effect waves-light black-text br btn-mt" type="submit" value="Submit">
+                      <button class="btn-large waves-effect waves-light black-text br btn-mt" type="submit">Submit</button>
                     </div>
                   </div>
                 </form>
