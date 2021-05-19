@@ -116,6 +116,14 @@ public class UserController {
     return "redirect:/emp_list_page";
   }
 
+  @GetMapping("/emp_attendance_page")
+  public String showEmployeesAttendancPage (Model model, HttpSession session){
+    User user = (User) session.getAttribute("user");
+    if(user == null) return "redirect:/";
+    model.addAttribute("user", user);
+    return "emp_attendance";
+  }
+
   @GetMapping("/sal_rec_page")
   public String showSalaryRecordPage(Model model, HttpSession session){
     User user = (User) session.getAttribute("user");
@@ -123,6 +131,8 @@ public class UserController {
     model.addAttribute("user", user);
     return "emp_salary";
   }
+
+
 
 
   // EMPLOYEE

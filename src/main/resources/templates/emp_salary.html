@@ -22,9 +22,9 @@
                 </li>
                 <li class="bold waves-effect"><a th:href="@{/emp_list_page}" class="collapsible-header">Employees List</a>
                 </li>
-                <li class="bold waves-effect"><a th:href="@{/attendance_page}" class="collapsible-header">Employees Attendance</a>
+                <li class="bold waves-effect"><a th:href="@{/emp_attendance_page}" class="collapsible-header">Employees Attendance</a>
                 </li>
-                <li class="bold waves-effect"><a href="#" class="collapsible-header">Salary Records</a></li>
+                <li class="bold waves-effect"><a class="collapsible-header">Salary Records</a></li>
                 <li class="bold waves-effect"><a th:href="@{/logout}" class="collapsible-header">Log Out</a>
                 </li>
             </ul>
@@ -69,10 +69,11 @@
 
 
                     </tbody>
+                </table>
 
 
-
-                    <thead>
+                <table class="striped">
+                  <thead>
                     <h6 class="white-text">Date : Jan - 15 - 2022</h6>
                     <tr>
                       <th data-field="firstName" class="center white-text"><h6>First Name</h6></th>
