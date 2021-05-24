@@ -3,12 +3,15 @@ package com.example.employee_management_system.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
 
 @Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "employee")
@@ -29,6 +32,6 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany (mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany (mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Attendance> attendance;
 }

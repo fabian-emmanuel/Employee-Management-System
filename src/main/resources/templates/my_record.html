@@ -44,28 +44,17 @@
                 <table class="striped">
                     <thead>
                     <tr>
-                      <th data-field="" class="center white-text"><h6>Date</h6></th>
-                        <th data-field="" class="center white-text"><h6>Work Hours<h6></th>
-                        <th data-field="" class="center white-text"><h6>Salary Due</h6></th>
+                      <th data-field="" class="center white-text">Date</th>
+                        <th data-field="" class="center white-text">Work Hours</th>
+                        <th data-field="" class="center white-text">Salary Due</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td class="center">Jan - 10 - 2022</td>
-                        <td class="center">7 Hours</td>
-                        <td class="center">$350</td>
+                    <tr th:each="attendance : ${employeeAttendance}">
+                        <td class="center" th:text="${attendance.workDayDate}">Jan - 10 - 2022</td>
+                        <td class="center" th:text="${attendance.workHours}">7 Hours</td>
+                        <td class="center" th:text="${'$'+attendance.salary}">$350</td>
                     </tr>
-                    <tr>
-                        <td class="center">Jan - 11 - 2022</td>
-                        <td class="center">3 Hours</td>
-                        <td class="center">$150</td>
-                    </tr>
-                    <tr>
-                        <td class="center">Jan - 12 - 2022</td>
-                        <td class="center">10 Hours</td>
-                        <td class="center">$500</td>
-                    </tr>
-
                     </tbody>
                 </table>
             </div>

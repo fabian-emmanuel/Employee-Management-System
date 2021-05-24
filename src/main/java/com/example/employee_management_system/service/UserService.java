@@ -2,6 +2,7 @@ package com.example.employee_management_system.service;
 
 import java.util.List;
 
+import com.example.employee_management_system.model.Attendance;
 import com.example.employee_management_system.model.User;
 
 public interface UserService {
@@ -13,7 +14,7 @@ public interface UserService {
 
   User getUserById(Long id);
 
-  void updateEmployee(User user, Long id);
+  void updateEmployee(User user);
 
   void delete(User employee);
   

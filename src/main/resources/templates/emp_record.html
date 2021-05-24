@@ -45,60 +45,26 @@
             <div class="col s10">
                 <table class="striped">
                   <thead>
-                    <h6 class="white-text">Date : Jan - 15 - 2022</h6>
+
                     <tr>
-                      <th data-field="firstName" class="center white-text"><h6>First Name</h6></th>
-                      <th data-field="lastName" class="center white-text"><h6>Last Name<h6></th>
-                      <th data-field="" class="center white-text"><h6>Work Hours</h6></th>
-                      <th data-field="" class="center white-text"><h6>Salary Due</h6></th>
+                      <th data-field="date" class="center white-text">Date</th>
+                      <th data-field="firstName" class="center white-text">First Name</th>
+                      <th data-field="lastName" class="center white-text">Last Name</th>
+                      <th data-field="" class="center white-text">Work Hours</th>
+                      <th data-field="" class="center white-text">Salary Due</th>
                     </tr>
                   </thead>
                     <tbody>
-                    <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">7 Hours</td>
-                        <td class="center">$350</td>
+                    <tr th:each="attendance : ${myList}">
+                        <td class="center" th:text="${attendance.workDayDate}">Date</td>
+                        <td class="center" th:text="${attendance.employee.firstName}">Alvin</td>
+                        <td class="center" th:text="${attendance.employee.firstName}">Eclair</td>
+                        <td class="center" th:text="${attendance.workHours + ' Hour(s)'}">7 Hours</td>
+                        <td class="center" th:text="${'$'+attendance.salary}">$350</td>
                     </tr>
-                    <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">2 Hours</td>
-                        <td class="center">$100</td>
-                    </tr>
-
-
                     </tbody>
                 </table>
 
-
-                <table class="striped">
-                  <thead>
-                    <h6 class="white-text">Date : Jan - 15 - 2022</h6>
-                    <tr>
-                      <th data-field="firstName" class="center white-text"><h6>First Name</h6></th>
-                      <th data-field="lastName" class="center white-text"><h6>Last Name<h6></th>
-                      <th data-field="" class="center white-text"><h6>Work Hours</h6></th>
-                      <th data-field="" class="center white-text"><h6>Salary Due</h6></th>
-                    </tr>
-                  </thead>
-                    <tbody>
-                    <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">7 Hours</td>
-                        <td class="center">$350</td>
-                    </tr>
-                    <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">2 Hours</td>
-                        <td class="center">$100</td>
-                    </tr>
-
-
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

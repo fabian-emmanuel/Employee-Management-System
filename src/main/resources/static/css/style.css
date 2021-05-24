@@ -1,6 +1,7 @@
 body{
   background-image: url("/img/pic.jpg");
   background-size: cover;
+  /*background-color: red;*/
 }
 
 .login{
@@ -32,11 +33,11 @@ body{
   border-radius: 10px;
   border: 2px aqua;
 }
-table.striped > tbody > tr:nth-child(odd) {
-  background-color: teal;
+.striped tbody tr:nth-child(odd) {
+  background-color: teal !important;
 
 }
-table.striped > tbody > tr:nth-child(even) {
-  background-color: white;
+.row .col>table.striped  tbody tr:nth-child(even) {
+  background-color: white !important;
 
 }

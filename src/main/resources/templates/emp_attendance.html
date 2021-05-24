@@ -45,26 +45,23 @@
             <div class="col s10">
                 <table class="striped">
                   <thead>
-                    <h6 class="white-text">Date : Jan - 15 - 2022</h6>
+
                     <tr>
-                      <th data-field="firstName" class="center white-text"><h6>First Name</h6></th>
-                      <th data-field="lastName" class="center white-text"><h6>Last Name<h6></th>
-                      <th data-field="email" class="center white-text"><h6> Checked In</h6></th>
-                      <th data-field="email" class="center white-text"> <h6> Checked Out</h6></th>
+                        <th class="center white-text">Date</th>
+                      <th data-field="firstName" class="center white-text">First Name</th>
+                      <th data-field="lastName" class="center white-text">Last Name</th>
+                      <th data-field="email" class="center white-text">Checked In</th>
+                      <th data-field="email" class="center white-text">Checked Out</th>
                     </tr>
                   </thead>
                     <tbody>
-                    <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">5 : 00 AM</td>
-                        <td class="center">7: 00 PM</td>
-                    </tr>
-                    <tr>
-                        <td class="center">Alvin</td>
-                        <td class="center">Eclair</td>
-                        <td class="center">5 : 00 AM</td>
-                        <td class="center">7: 00 PM</td>
+                    <tr th:each="attendance : ${attendanceList}">
+
+                        <td class="center" th:text="${attendance.workDayDate}">Alvin</td>
+                        <td class="center" th:text="${attendance.employee.firstName}">Alvin</td>
+                        <td class="center" th:text="${attendance.employee.lastName}">Eclair</td>
+                        <td class="center" th:text="${attendance.checkInTime}">5 : 00 AM</td>
+                        <td class="center" th:text="${attendance.checkOutTime}">7: 00 PM</td>
                     </tr>
 
 
