@@ -1,0 +1,84 @@
+<!Doctype HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Dashboard - Employee</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- Materialize-->
+    <link href="https://cdn.shopify.com/s/files/1/1775/8583/t/1/assets/admin-materialize.min.css?v=8850535670742419153"
+          rel="stylesheet">
+    <!-- Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body class="has-fixed-sidenav">
+<header>
+    <ul class="sidenav sidenav-fixed teal" id="sidenav-left">
+        <li><h3 class="logo-container">My Dashboard<i class="material-icons left">spa</i></h3></li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold waves-effect"><a class="collapsible-header">My Attendance</a>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header" th:href="@{/record_page}">My Record</a>
+                </li>
+                <li class="bold waves-effect"><a class="collapsible-header" th:href="@{/logout}">Log Out</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</header>
+<main>
+    <div class="row dash">
+        <div class="row">
+            <div class="col s10">
+                <h3 class="teal-text" th:text="${employee.firstName +' '+ employee.lastName}">Name of Employee</h3>
+                <h6 class="right teal-text">
+                    My Attendance
+                    <a th:href="@{/check_in}" class="btn" >CHECK IN</a>
+                </h6>
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col s10">
+                <!--=====================================================-->
+
+                <table class="striped">
+                    <thead class="white-text">
+                    <tr>
+                        <th class="center">Date</th>
+                        <th class="center">Check In Time</th>
+                        <th class="center">Check Out Time</th>
+                        <th class="center">Work Hours</th>
+                        <th class="center">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="attendance : ${employeeAttendance}">
+                        <td class="center-align" th:text="${attendance.getWorkDayDate()}"></td>
+                        <td class="center-align" th:text="${attendance.getCheckInTime()}"></td>
+                        <td class="center-align" th:text="${attendance.getCheckOutTime()}"></td>
+                        <td class="center-align" th:text="${attendance.getWorkHours() +' Hour(s)'}"></td>
+                        <td class="center-align">
+                            <a th:href="@{/check-out(id=${attendance.getId()})}" class="btn red" th:if="${attendance.getCheckOutTime() == attendance.getCheckInTime()}">CHECK OUT</a>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</main><!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.2/moment.min.js"></script>
+<!-- Initialization script -->
+<script src="https://cdn.shopify.com/s/files/1/1775/8583/t/1/assets/dashboard.min.js?v=481680883062710906"></script>
+</body>
+</html>
